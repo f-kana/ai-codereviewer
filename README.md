@@ -1,12 +1,14 @@
 # AI Code Reviewer
 
-AI Code Reviewer is a GitHub Action that leverages OpenAI's GPT-4 API to provide intelligent feedback and suggestions on
+AI Code Reviewer is a GitHub Action that leverages OpenAI's GPT-5 API to provide intelligent feedback and suggestions on
 your pull requests. This powerful tool helps improve code quality and saves developers time by automating the code
 review process.
 
+**Note:** This action supports both GPT-4 and GPT-5 models. GPT-5 is used by default for the best performance, but you can configure it to use GPT-4 or other models if needed.
+
 ## Features
 
-- Reviews pull requests using OpenAI's GPT-4 API.
+- Reviews pull requests using OpenAI's GPT-5 API (with backwards compatibility for GPT-4).
 - Provides intelligent comments and suggestions for improving your code.
 - Filters out files that match specified exclude patterns.
 - Easy to set up and integrate into your GitHub workflow.
@@ -42,7 +44,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # The GITHUB_TOKEN is there by default so you just need to keep it like it is and not necessarily need to add it as secret as it will throw an error. [More Details](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_API_MODEL: "gpt-4" # Optional: defaults to "gpt-4"
+          OPENAI_API_MODEL: "gpt-5" # Optional: defaults to "gpt-5", can also use "gpt-4"
           exclude: "**/*.json, **/*.md" # Optional: exclude patterns separated by commas
 ```
 
