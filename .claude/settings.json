@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(.claude/**)",
+      "Edit(.claude/**)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Edit(**/.env)",
+      "Write(**/.env)"
+    ]
+  },
+  "plansDirectory": "tmp/claude/plans"
+}

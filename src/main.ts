@@ -117,7 +117,7 @@ async function getAIResponse(prompt: string): Promise<Array<{
   const queryConfig = {
     model: OPENAI_API_MODEL,
     temperature: 0.2,
-    max_tokens: 700,
+    max_completion_tokens: 700,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -127,7 +127,7 @@ async function getAIResponse(prompt: string): Promise<Array<{
     const response = await openai.chat.completions.create({
       ...queryConfig,
       // return JSON if the model supports it:
-      ...(OPENAI_API_MODEL === "gpt-4-1106-preview"
+      ...(OPENAI_API_MODEL.startsWith("gpt-5")
         ? { response_format: { type: "json_object" } }
         : {}),
       messages: [
